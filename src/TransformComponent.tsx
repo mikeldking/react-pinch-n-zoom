@@ -33,7 +33,7 @@ export const TransformComponent = ({ children, style }: IProps) => {
     return () => {
       el?.removeEventListener('wheel', onWheel);
     };
-  }, [offsetX, offsetY, scale]);
+  }, [offsetX, offsetY, scale, setOffsetX, setOffsetY, setScale]);
 
   return (
     <div ref={elementRef} style={style}>
