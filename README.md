@@ -33,7 +33,7 @@ const App = () => {
 To get access to the transform values and setters, use the context providers and consumers. You can also use the `useTransform` hook to grab the transform context values in child components.
 
 ```typescript
-import { TransformComponent, TransformProvider, TransformConsumer } from '../.';
+import { TransformComponent, TransformProvider, TransformConsumer } from 'react-pinch-n-zoom';
 
 const App = () => {
   return (
