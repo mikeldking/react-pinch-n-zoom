@@ -4,8 +4,12 @@ import { useTransform } from './TransformContext';
 interface IProps {
   children: React.ReactNode;
   style?: CSSProperties;
+  className?: string;
 }
-export const TransformComponent = ({ children, style }: IProps) => {
+/**
+ * The component that takes the transform context and applies it
+ */
+export const TransformComponent = ({ children, style, className }: IProps) => {
   const {
     scale,
     setScale,
@@ -24,7 +28,7 @@ export const TransformComponent = ({ children, style }: IProps) => {
         // Your zoom/scale factor
         setScale(Math.max(0.2, scale - e.deltaY * 0.01));
       } else {
-        // The trackpad
+        // The trackpad is panning
         setOffsetX(offsetX - e.deltaX * 2);
         setOffsetY(offsetY - e.deltaY * 2);
       }
@@ -36,7 +40,7 @@ export const TransformComponent = ({ children, style }: IProps) => {
   }, [offsetX, offsetY, scale, setOffsetX, setOffsetY, setScale]);
 
   return (
-    <div ref={elementRef} style={style}>
+    <div ref={elementRef} style={style} className={className}>
       <div
         style={{
           transform: `scale(${scale}) translateX(${offsetX}px) translateY(${offsetY}px)`,

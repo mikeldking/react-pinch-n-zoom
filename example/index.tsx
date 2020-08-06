@@ -1,12 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {
-  TransformComponent,
-  TransformProvider,
-  useTransform,
-  TransformConsumer,
-} from '../.';
+import { TransformComponent, TransformProvider, TransformConsumer } from '../.';
 
 const App = () => {
   return (
@@ -31,7 +26,16 @@ const App = () => {
         />
       </TransformComponent>
       <TransformConsumer>
-        {({ scale, setScale, offsetX, setOffsetX, offsetY, setOffsetY }) => {
+        {({
+          scale,
+          setScale,
+          offsetX,
+          setOffsetX,
+          offsetY,
+          setOffsetY,
+          minScale,
+          maxScale,
+        }) => {
           return (
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <label>
@@ -39,8 +43,8 @@ const App = () => {
                 <input
                   type="range"
                   value={scale}
-                  min="0.2"
-                  max="3"
+                  min={minScale}
+                  max={maxScale}
                   step="0.05"
                   onChange={e => {
                     setScale(parseFloat(e.currentTarget.value));

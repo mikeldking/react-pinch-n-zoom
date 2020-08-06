@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 
 export interface ITransformContext {
   scale: number;
+  minScale: number;
+  maxScale: number;
   offsetX: number;
   offsetY: number;
   setScale: (scale: number) => void;
@@ -11,6 +13,8 @@ export interface ITransformContext {
 
 export const TransformContext = React.createContext<ITransformContext>({
   scale: 1,
+  minScale: 0.2,
+  maxScale: Infinity,
   offsetX: 0,
   offsetY: 0,
   setScale: () => {},
