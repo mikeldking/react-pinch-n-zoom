@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { PinchNZoom } from './PinchNZoom';
+export { useTransform, TransformConsumer } from './TransformContext';
+export { TransformProvider } from './TransformProvider';
+export { TransformComponent } from './TransformComponent';
 
-// Delete me
-export const Thing = () => {
-  return <div>the snozzberries taste like snozzberries</div>;
-};
+export default PinchNZoom;
